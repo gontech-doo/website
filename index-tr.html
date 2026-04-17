@@ -204,7 +204,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm" action="https://gontech-messenger.proud-butterfly-2510.workers.dev/" method="POST" novalidate>
+                    <form id="contactForm" novalidate>
                         <div class="form-group">
                             <label>İsim</label>
                             <input type="text" name="name" id="name" required>
@@ -271,8 +271,8 @@
         
         if (isValid) {
             const formData = new FormData(this);
-            fetch(this.action, { method: 'POST', body: formData });
-            successMsg.textContent = 'Thank you! Mesaj sent successfully.';
+            fetch('https://gontech-messenger.proud-butterfly-2510.workers.dev/', { method: 'POST', body: formData });
+            successMsg.textContent = 'Teşekkürler! Mesajınız gönderildi.';
             successMsg.classList.add('show');
             this.reset();
         }
