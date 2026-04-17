@@ -19,7 +19,6 @@
     gtag('js', new Date());
     gtag('config', 'G-5P3VHEZY74');
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/build/cookieconsent.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -95,6 +94,12 @@
             .about-content, .contact-content { grid-template-columns: 1fr; }
             nav { display: none; }
         }
+            /* Cookie Consent */
+        #cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #f8fafc; padding: 20px; z-index: 9999; display: none; font-size: 0.9rem; }
+        #cookie-banner a { color: #3b82f6; }
+        .cookie-btn { background: #2563eb; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-left: 10px; }
+        .cookie-btn:hover { background: #1d4ed8; }
+        .cookie-close { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; }
     </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -109,7 +114,8 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108612658" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/osano@0.0.3/osano.min.css">
+    </head>
 <body>
     <header>
         <div class="container">
@@ -301,41 +307,16 @@
         }
     });
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/build/cookieconsent.min.js"></script>
     <script>
-    CookieConsent.run({
-        guiOptions: {
-            consentModal: {
-                layout: 'cloud inline',
-                position: 'bottom center'
-            }
-        },
-        categories: {
-            necessary: { enabled: true, readOnly: true },
-            analytics: { autoClear: { cookies: [{ name: /^_ga/ }, { name: '_gid' }] } }
-        },
-        language: {
-            default: 'tr',
-            translations: {
-                tr: {
-                    consentModal: {
-                        title: 'Çerezleri kullanıyoruz',
-                        description: 'Tarama deneyiminizi geliştirmek ve site trafiğini analiz etmek için çerezler kullanıyoruz.',
-                        acceptAllBtn: 'Tümünü kabul et',
-                        acceptNecessaryBtn: 'Reddet',
-                        showPreferencesBtn: 'Tercihleri yönet'
-                    },
-                    preferencesModal: {
-                        title: 'Çerez tercihleri',
-                        acceptAllBtn: 'Tümünü kabul et',
-                        acceptNecessaryBtn: 'Reddet',
-                        savePreferencesBtn: 'Tercihleri kaydet',
-                        closeIconLabel: 'Kapat'
-                    }
-                }
-            }
-        }
-    });
+    </script>
+    <div id="cookie-banner">
+        <span>Bu web sitesi, deneyiminizi geliştirmek için çerezler kullanmaktadır.</span>
+        <button class="cookie-btn" onclick="acceptCookies()">Kabul Et</button>
+        <button class="cookie-close" onclick="acceptCookies()">×</button>
+    </div>
+    <script>
+    if (!localStorage.getCookie("cookies_accepted")) { document.getElementById("cookie-banner").style.display = "block"; }
+    function acceptCookies() { localStorage.setItem("cookies_accepted", "true"); document.getElementById("cookie-banner").style.display = "none"; }
     </script>
 </body>
 </html>
