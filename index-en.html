@@ -74,6 +74,62 @@
             color: var(--accent);
         }
         
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 30px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .lang-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: var(--bg-light);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 120px;
+            z-index: 1000;
+        }
+        
+        .lang-dropdown:hover .lang-menu {
+            display: block;
+        }
+        
+        .lang-menu a {
+            display: block;
+            padding: 10px 16px;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0;
+            border-radius: 0;
+        }
+        
+        .lang-menu a:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .lang-menu a.active {
+            background: var(--primary);
+            color: white;
+        }
+        
         .hero {
             padding: 160px 0 100px;
             text-align: center;
@@ -289,31 +345,6 @@
             color: var(--text-muted);
         }
         
-        .lang-switch {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            z-index: 101;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .lang-switch a {
-            padding: 8px 16px;
-            background: var(--bg-light);
-            color: var(--text-muted);
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        
-        .lang-switch a:hover,
-        .lang-switch a.active {
-            background: var(--accent);
-            color: white;
-        }
-        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -335,11 +366,6 @@
     </style>
 </head>
 <body>
-    <div class="lang-switch">
-        <a href="index.html">🇹🇷 Türkçe</a>
-        <a href="index-en.html" class="active">🇬🇧 English</a>
-    </div>
-    
     <header>
         <div class="container">
             <div class="logo">GON<span>TECH</span></div>
@@ -347,6 +373,13 @@
                 <a href="#services">Services</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
+                <div class="lang-dropdown">
+                    <button class="lang-btn">🌐 Lang</button>
+                    <div class="lang-menu">
+                        <a href="index.html">🇹🇷 Türkçe</a>
+                        <a href="index-en.html" class="active">🇬🇧 English</a>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -413,6 +446,12 @@
                 </div>
                 
                 <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI & Automation</h3>
+                    <p>Artificial intelligence integration, chatbot development, process automation and LLM-based applications.</p>
+                </div>
+                
+                <div class="service-card">
                     <div class="service-icon">🔧</div>
                     <h3>Technical Support</h3>
                     <p>24/7 technical support, maintenance and update services. Remote and on-site support options.</p>
@@ -430,7 +469,7 @@
                     <p>We produce custom solutions for our clients' needs and follow projects from start to finish. We continue to grow your business with our support and maintenance services.</p>
                 </div>
                 <div class="about-image">
-                    <img src="about.jpg" alt="GON TECH Team" style="width:100%; border-radius:16px;">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="GON TECH Team" style="width:100%; border-radius:16px;">
                 </div>
             </div>
         </div>
