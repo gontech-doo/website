@@ -10,6 +10,7 @@
     <title>GON TECH DOO - IT Solutions & Digital Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta name="description" content="Professional IT solutions in Montenegro. Web development, mobile apps, 360° photography, hosting and digital services.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/build/cookieconsent.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P3VHEZY74"></script>
     <script>
@@ -283,6 +284,42 @@
             successMsg.textContent = 'Thank you! Message sent successfully.';
             successMsg.classList.add('show');
             this.reset();
+        }
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/build/cookieconsent.min.js"></script>
+    <script>
+    CookieConsent.run({
+        guiOptions: {
+            consentModal: {
+                layout: 'cloud inline',
+                position: 'bottom center'
+            }
+        },
+        categories: {
+            necessary: { enabled: true, readOnly: true },
+            analytics: { autoClear: { cookies: [{ name: /^_ga/ }, { name: '_gid' }] } }
+        },
+        language: {
+            default: 'en',
+            translations: {
+                en: {
+                    consentModal: {
+                        title: 'We use cookies',
+                        description: 'We use cookies to enhance your browsing experience and analyze site traffic.',
+                        acceptAllBtn: 'Accept all',
+                        acceptNecessaryBtn: 'Reject all',
+                        showPreferencesBtn: 'Manage preferences'
+                    },
+                    preferencesModal: {
+                        title: 'Cookie preferences',
+                        acceptAllBtn: 'Accept all',
+                        acceptNecessaryBtn: 'Reject all',
+                        savePreferencesBtn: 'Save preferences',
+                        closeIconLabel: 'Close'
+                    }
+                }
+            }
         }
     });
     </script>
