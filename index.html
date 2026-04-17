@@ -5,403 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GON TECH DOO - IT Solutions & Digital Services</title>
     <meta name="description" content="Professional IT solutions in Montenegro. Web development, mobile apps, 360° photography, hosting and digital services.">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LePRLwsAAAAAI5WLE6VE_k-uuugEyJ-ytBta_vQ"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
-            --secondary: #0f172a;
             --accent: #3b82f6;
             --bg: #0f172a;
             --bg-light: #1e293b;
             --text: #f8fafc;
             --text-muted: #94a3b8;
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            padding: 20px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #ffffff;
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0f172a;
-        }
-        
-        .site-logo { height: 40px; width: auto; vertical-align: middle; }
-        
-        .logo-link { text-decoration: none; display: inline-block; }
-        
-        .logo-link:hover { opacity: 0.9; }
-        
-        nav a {
-            color: #64748b;
-            text-decoration: none;
-            margin-left: 30px;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #0f172a;
-        }
-        
-        .lang-dropdown {
-            position: relative;
-            display: inline-block;
-            margin-left: 30px;
-        }
-        
-        .lang-btn {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: #64748b;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .lang-btn:hover {
-            border-color: #0f172a;
-            color: #0f172a;
-        }
-        
-        .lang-menu {
-            display: none;
-            position: absolute;
-            right: 0;
-            background: var(--bg-light);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            min-width: 155px;
-            z-index: 1000;
-        }
-        
-        .lang-dropdown:hover .lang-menu {
-            display: block;
-        }
-        
-        .lang-menu a {
-            display: block;
-            padding: 10px 16px;
-            color: #64748b;
-            text-decoration: none;
-            margin: 0;
-            border-radius: 0;
-        }
-        
-        .lang-menu a:hover {
-            background: var(--accent);
-            color: white;
-        }
-        
-        .lang-menu a.active {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .hero {
-            padding: 160px 0 100px;
-            text-align: center;
-            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-light) 100%);
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            color: #64748b;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-        
-        .btn {
-            padding: 14px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .btn-secondary:hover {
-            border-color: #0f172a;
-            color: #0f172a;
-        }
-        
-        .services {
-            padding: 100px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: #64748b;
-            font-size: 1.1rem;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: var(--bg-light);
-            padding: 40px 30px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s;
-        }
-        
-        .service-card:hover {
-            border-color: #0f172a;
-            transform: translateY(-5px);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-        
-        .service-card p {
-            color: #64748b;
-            font-size: 0.95rem;
-        }
-        
-        .about {
-            padding: 100px 0;
-            background: var(--bg-light);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .about p {
-            color: #64748b;
-            margin-bottom: 20px;
-        }
-        
-        .about-image {
-            border-radius: 16px;
-            overflow: hidden;
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .contact {
-            padding: 100px 0;
-        }
-        
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-        
-        .contact-info h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        
-        .contact-info p {
-            color: #64748b;
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .contact-item span {
-            color: #0f172a;
-            font-size: 1.2rem;
-        }
-        
-        .contact-form {
-            background: var(--bg-light);
-            padding: 40px;
-            border-radius: 16px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 1rem;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        
-        .form-group input.error,
-        .form-group textarea.error {
-            border-color: #ef4444;
-        }
-        
-        .form-group input.valid,
-        .form-group textarea.valid {
-            border-color: #22c55e;
-        }
-        
-        .error-msg {
-            color: #ef4444;
-            font-size: 0.85rem;
-            margin-top: 5px;
-            display: none;
-        }
-        
-        .error-msg.show {
-            display: block;
-        }
-        
-        .success-msg {
-            margin-top: 15px;
-            padding: 15px;
-            background: #22c55e20;
-            border: 1px solid #22c55e;
-            border-radius: 8px;
-            color: #22c55e;
-            text-align: center;
-            display: none;
-        }
-        
-        .success-msg.show {
-            display: block;
-        }
-        
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: #64748b;
-        }
-        
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { padding: 15px 0; position: fixed; top: 0; width: 100%; background: #ffffff; z-index: 100; border-bottom: 1px solid #e5e7eb; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { display: inline-block; }
+        .site-logo { height: 40px; width: auto; }
+        nav { display: flex; align-items: center; gap: 25px; }
+        nav a { color: #64748b; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: var(--primary); }
+        .lang-dropdown { position: relative; }
+        .lang-btn { background: transparent; border: 1px solid #d1d5db; color: #64748b; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+        .lang-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .lang-menu { display: none; position: absolute; right: 0; background: white; border: 1px solid #e5e7eb; border-radius: 8px; min-width: 140px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .lang-dropdown:hover .lang-menu { display: block; }
+        .lang-menu a { display: block; padding: 10px 14px; color: #64748b; text-decoration: none; }
+        .lang-menu a:hover { background: var(--primary); color: white; }
+        .hero { padding: 140px 0 80px; text-align: center; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-light) 100%); }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; color: var(--text); }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
+        .hero-buttons { display: flex; gap: 15px; justify-content: center; }
+        .btn { padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-secondary { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.3); }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+        .services { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        .section-title p { color: var(--text-muted); font-size: 1.05rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-card { background: var(--bg-light); padding: 30px 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; }
+        .service-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .service-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .service-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .service-card p { color: var(--text-muted); font-size: 0.9rem; }
+        .about { padding: 80px 0; background: var(--bg-light); }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about h2 { font-size: 2rem; margin-bottom: 20px; }
+        .about p { color: var(--text-muted); margin-bottom: 15px; }
+        .about-image img { width: 100%; border-radius: 12px; }
+        .contact { padding: 80px 0; }
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-info h2 { font-size: 1.8rem; margin-bottom: 15px; }
+        .contact-info p { color: var(--text-muted); margin-bottom: 25px; }
+        .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+        .contact-item span { color: var(--accent); font-size: 1.2rem; }
+        .contact-form { background: var(--bg-light); padding: 35px; border-radius: 12px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 500; font-size: 0.95rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+        .form-group input.error, .form-group textarea.error { border-color: #ef4444; }
+        .form-group input.valid, .form-group textarea.valid { border-color: #22c55e; }
+        .error-msg { color: #ef4444; font-size: 0.8rem; margin-top: 4px; display: none; }
+        .error-msg.show { display: block; }
+        .success-msg { margin-top: 15px; padding: 12px; background: #22c55e20; border: 1px solid #22c55e; border-radius: 8px; color: #22c55e; text-align: center; display: none; }
+        .success-msg.show { display: block; }
+        footer { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: var(--text-muted); font-size: 0.9rem; }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-            
-            nav {
-                display: none;
-            }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-buttons { flex-direction: column; }
+            .about-content, .contact-content { grid-template-columns: 1fr; }
+            nav { display: none; }
         }
     </style>
-        <script src="https://www.google.com/recaptcha/api.js?render=6LePRLwsAAAAAI5WLE6VE_k-uuugEyJ-ytBta_vQ"></script>
-    </head>
+</head>
 <body>
     <header>
         <div class="container">
@@ -413,9 +94,9 @@
                 <div class="lang-dropdown">
                     <button class="lang-btn">🌐 EN</button>
                     <div class="lang-menu">
-                        <a href="index.html" class="active">🇬🇧 English</a>
-                        <a href="index-cnr.html">🇲🇪 Crnogorski</a>
+                        <a href="index.html">🇬🇧 English</a>
                         <a href="index-tr.html">🇹🇷 Türkçe</a>
+                        <a href="index-cnr.html">🇲🇪 Crnogorski</a>
                     </div>
                 </div>
             </nav>
@@ -439,60 +120,46 @@
                 <h2>Our Services</h2>
                 <p>Comprehensive digital solutions for your business</p>
             </div>
-            
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🌐</div>
                     <h3>Web Development</h3>
-                    <p>Modern websites, e-commerce platforms, and enterprise web applications. Development with React, Vue, Next.js and WordPress.</p>
+                    <p>Modern websites, e-commerce platforms, and enterprise web applications.</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">📱</div>
                     <h3>Mobile Applications</h3>
-                    <p>Native and cross-platform mobile applications for iOS and Android. App Store and Google Play distribution.</p>
+                    <p>Native and cross-platform mobile apps for iOS and Android.</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">🖥️</div>
                     <h3>Desktop Applications</h3>
-                    <p>Desktop applications for Windows, macOS and Linux. Electron and native development.</p>
+                    <p>Desktop apps for Windows, macOS and Linux.</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">📍</div>
                     <h3>Google Business Profile</h3>
-                    <p>Create and optimize your business profile on Google Maps. Local SEO and map integrations.</p>
+                    <p>Create and optimize your business profile on Google Maps.</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">☁️</div>
                     <h3>Hosting & Email</h3>
-                    <p>Reliable web hosting, business email, domain management and SSL certificate services.</p>
+                    <p>Reliable web hosting, business email, domain and SSL services.</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">📸</div>
                     <h3>360° Photography & VR</h3>
-                    <p>Professional 360° photo and video capture with Insta360. Virtual tours and immersive content.</p>
+                    <p>Professional 360° photo and video with Insta360.</p>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🎓</div>
-                    <h3>IT Consulting</h3>
-                    <p>Digital transformation, system architecture and technology strategy consulting.</p>
-                </div>
-                
                 <div class="service-card">
                     <div class="service-icon">🤖</div>
                     <h3>AI & Automation</h3>
-                    <p>Artificial intelligence integration, chatbot development, process automation and LLM-based applications.</p>
+                    <p>AI integration, chatbot development, and process automation.</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">🔧</div>
                     <h3>Technical Support</h3>
-                    <p>24/7 technical support, maintenance and update services. Remote and on-site support options.</p>
+                    <p>24/7 technical support, maintenance and updates.</p>
                 </div>
             </div>
         </div>
@@ -503,11 +170,11 @@
             <div class="about-content">
                 <div>
                     <h2>Why GON TECH?</h2>
-                    <p>Our Montenegro-based IT company serves as your gateway to the European market. We offer quality services at competitive prices with low tax rates and proximity to the EU.</p>
-                    <p>We produce custom solutions for our clients' needs and follow projects from start to finish. We continue to grow your business with our support and maintenance services.</p>
+                    <p>Our Montenegro-based IT company serves as your gateway to the European market. We offer quality services at competitive prices with low tax rates.</p>
+                    <p>We produce custom solutions for our clients' needs and follow projects from start to finish.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="GON TECH Team" style="width:100%; border-radius:16px;">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="GON TECH">
                 </div>
             </div>
         </div>
@@ -519,31 +186,19 @@
                 <h2>Contact</h2>
                 <p>Let's discuss your project</p>
             </div>
-            
             <div class="contact-content">
                 <div class="contact-info">
                     <h2>Get in Touch</h2>
-                    <p>Contact us for a price quote, ask questions, or schedule a meeting.</p>
-                    
+                    <p>Contact us for a price quote or to schedule a meeting.</p>
                     <div class="contact-item">
                         <span>📍</span>
-                        <div>
-                            <strong>Address</strong><br>
-                            4 JULA, ZGRADA 56A, ULAZ II<br>
-                            ZABJELO, PODGORICA<br>
-                            MONTENEGRO
-                        </div>
+                        <div><strong>Address</strong><br>4 JULA, ZGRADA 56A, ULAZ II<br>ZABJELO, PODGORICA<br>MONTENEGRO</div>
                     </div>
-                    
                     <div class="contact-item">
                         <span>📧</span>
-                        <div>
-                            <strong>Email</strong><br>
-                            welcome@gontech.me
-                        </div>
+                        <div><strong>Email</strong><br>welcome@gontech.me</div>
                     </div>
                 </div>
-                
                 <div class="contact-form">
                     <form name="contact" id="contactForm" method="POST" data-netlify="true" novalidate>
                         <div class="form-group">
@@ -578,62 +233,47 @@
     <script>
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
-        
         let isValid = true;
         const name = document.getElementById('name');
         const email = document.getElementById('email');
         const message = document.getElementById('message');
         const successMsg = document.getElementById('successMsg');
         
-        // Reset errors
         document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
         document.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error', 'valid'));
         successMsg.classList.remove('show');
         
-        // Name validation
         if (name.value.trim().length < 2) {
-            document.getElementById('nameError').textContent = 'Please enter a valid name (min 2 characters)';
+            document.getElementById('nameError').textContent = 'Please enter a valid name';
             document.getElementById('nameError').classList.add('show');
             name.classList.add('error');
             isValid = false;
-        } else {
-            name.classList.add('valid');
-        }
+        } else { name.classList.add('valid'); }
         
-        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email.value)) {
-            document.getElementById('emailError').textContent = 'Please enter a valid email address';
+            document.getElementById('emailError').textContent = 'Please enter a valid email';
             document.getElementById('emailError').classList.add('show');
             email.classList.add('error');
             isValid = false;
-        } else {
-            email.classList.add('valid');
-        }
+        } else { email.classList.add('valid'); }
         
-        // Message validation
         if (message.value.trim().length < 10) {
-            document.getElementById('messageError').textContent = 'Please enter a message (min 10 characters)';
+            document.getElementById('messageError').textContent = 'Please enter at least 10 characters';
             document.getElementById('messageError').classList.add('show');
             message.classList.add('error');
             isValid = false;
-        } else {
-            message.classList.add('valid');
-        }
+        } else { message.classList.add('valid'); }
         
         if (isValid) {
-            // Get reCAPTCHA token
             try {
                 const token = await grecaptcha.execute('6LePRLwsAAAAAI5WLE6VE_k-uuugEyJ-ytBta_vQ', {action: 'contact'});
-                
-                // Add token to form
                 let tokenInput = document.createElement('input');
                 tokenInput.type = 'hidden';
                 tokenInput.name = 'g-recaptcha-response';
                 tokenInput.value = token;
                 this.appendChild(tokenInput);
-                
-                successMsg.textContent = 'Thank you! Your message has been sent successfully.';
+                successMsg.textContent = 'Thank you! Message sent successfully.';
                 successMsg.classList.add('show');
                 this.submit();
             } catch (error) {
