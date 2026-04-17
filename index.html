@@ -407,7 +407,8 @@
             }
         }
     </style>
-</head>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LePRLwsAAAAAI5WLE6VE_k-uuugEyJ-ytBta_vQ"></script>
+    </head>
 <body>
     <header>
         <div class="container">
@@ -582,7 +583,7 @@
     </footer>
     
     <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         
         let isValid = true;
@@ -628,9 +629,23 @@
         }
         
         if (isValid) {
-            successMsg.textContent = 'Thank you! Your message has been sent successfully.';
-            successMsg.classList.add('show');
-            this.submit();
+            // Get reCAPTCHA token
+            try {
+                const token = await grecaptcha.execute('6LePRLwsAAAAAI5WLE6VE_k-uuugEyJ-ytBta_vQ', {action: 'contact'});
+                
+                // Add token to form
+                let tokenInput = document.createElement('input');
+                tokenInput.type = 'hidden';
+                tokenInput.name = 'g-recaptcha-response';
+                tokenInput.value = token;
+                this.appendChild(tokenInput);
+                
+                successMsg.textContent = 'Thank you! Your message has been sent successfully.';
+                successMsg.classList.add('show');
+                this.submit();
+            } catch (error) {
+                alert('Please try again later.');
+            }
         }
     });
     </script>
