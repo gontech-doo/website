@@ -308,6 +308,31 @@
             color: var(--text-muted);
         }
         
+        .lang-switch {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 101;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-switch a {
+            padding: 8px 16px;
+            background: var(--bg-light);
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .lang-switch a:hover,
+        .lang-switch a.active {
+            background: var(--accent);
+            color: white;
+        }
+        
         /* Mobile */
         @media (max-width: 768px) {
             .hero h1 {
@@ -330,6 +355,10 @@
     </style>
 </head>
 <body>
+    <div class="lang-switch">
+        <a href="index.html" class="active">🇹🇷 Türkçe</a>
+        <a href="index-en.html">🇬🇧 English</a>
+    </div>
     <header>
         <div class="container">
             <div class="logo">GON<span>TECH</span></div>
