@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,6 @@
             padding: 0 20px;
         }
         
-        /* Header */
         header {
             padding: 20px 0;
             position: fixed;
@@ -131,7 +130,6 @@
             color: white;
         }
         
-        /* Hero */
         .hero {
             padding: 160px 0 100px;
             text-align: center;
@@ -189,7 +187,6 @@
             color: var(--accent);
         }
         
-        /* Services */
         .services {
             padding: 100px 0;
         }
@@ -243,7 +240,6 @@
             font-size: 0.95rem;
         }
         
-        /* About */
         .about {
             padding: 100px 0;
             background: var(--bg-light);
@@ -277,7 +273,6 @@
             display: block;
         }
         
-        /* Contact */
         .contact {
             padding: 100px 0;
         }
@@ -343,7 +338,6 @@
             border-color: var(--accent);
         }
         
-        /* Footer */
         footer {
             padding: 40px 0;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -351,7 +345,6 @@
             color: var(--text-muted);
         }
         
-        /* Mobile */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -377,14 +370,15 @@
         <div class="container">
             <div class="logo">GON<span>TECH</span></div>
             <nav>
-                <a href="#services">Hizmetler</a>
-                <a href="#about">Hakkımızda</a>
-                <a href="#contact">İletişim</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
                 <div class="lang-dropdown">
-                    <button class="lang-btn">🌐 Dil</button>
+                    <button class="lang-btn">🌐 EN</button>
                     <div class="lang-menu">
-                        <a href="index.html" class="active">🇹🇷 Türkçe</a>
-                        <a href="index-en.html">🇬🇧 English</a>
+                        <a href="index.html" class="active">🇬🇧 English</a>
+                        <a href="index-tr.html">🇹🇷 Türkçe</a>
+                        <a href="index-cnr.html">🇲🇪 Crnogorski</a>
                     </div>
                 </div>
             </nav>
@@ -394,10 +388,10 @@
     <section class="hero">
         <div class="container">
             <h1>GON TECH DOO</h1>
-            <p>Karadağ'da profesyonel IT çözümleri. Web, mobil uygulamalar, 360° çekimler ve dijital dönüşüm hizmetleri.</p>
+            <p>Professional IT solutions in Montenegro. Web development, mobile apps, 360° photography, and digital transformation services.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Teklif Al</a>
-                <a href="#services" class="btn btn-secondary">Hizmetlerimiz</a>
+                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
             </div>
         </div>
     </section>
@@ -405,63 +399,63 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Hizmetlerimiz</h2>
-                <p>İşletmeniz için kapsamlı dijital çözümler</p>
+                <h2>Our Services</h2>
+                <p>Comprehensive digital solutions for your business</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🌐</div>
-                    <h3>Web Geliştirme</h3>
-                    <p>Modern web siteleri, e-ticaret platformları ve kurumsal web uygulamaları. React, Vue, Next.js ve WordPress ile geliştirme.</p>
+                    <h3>Web Development</h3>
+                    <p>Modern websites, e-commerce platforms, and enterprise web applications. Development with React, Vue, Next.js and WordPress.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">📱</div>
-                    <h3>Mobil Uygulama</h3>
-                    <p>iOS ve Android için native ve cross-platform mobil uygulamalar. App Store ve Google Play dağıtımı.</p>
+                    <h3>Mobile Applications</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android. App Store and Google Play distribution.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">🖥️</div>
-                    <h3>Masaüstü Uygulama</h3>
-                    <p>Windows, macOS ve Linux için desktop uygulamalar. Electron ve native development.</p>
+                    <h3>Desktop Applications</h3>
+                    <p>Desktop applications for Windows, macOS and Linux. Electron and native development.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">📍</div>
-                    <h3>Google İşletme Kaydı</h3>
-                    <p>Google Maps'te işletme profili oluşturma ve optimizasyonu. Yerel SEO ve harita entegrasyonları.</p>
+                    <h3>Google Business Profile</h3>
+                    <p>Create and optimize your business profile on Google Maps. Local SEO and map integrations.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">☁️</div>
                     <h3>Hosting & Email</h3>
-                    <p>Güvenilir web hosting, business email, domain yönetimi ve SSL sertifikası hizmetleri.</p>
+                    <p>Reliable web hosting, business email, domain management and SSL certificate services.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">📸</div>
-                    <h3>360° Çekim & VR</h3>
-                    <p>Insta360 ile profesyonel 360° fotoğraf ve video çekimi. Virtual tour ve immersive içerikler.</p>
+                    <h3>360° Photography & VR</h3>
+                    <p>Professional 360° photo and video capture with Insta360. Virtual tours and immersive content.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">🎓</div>
-                    <h3>IT Danışmanlık</h3>
-                    <p>Dijital dönüşüm, sistem mimarisi ve teknoloji stratejisi danışmanlığı.</p>
+                    <h3>IT Consulting</h3>
+                    <p>Digital transformation, system architecture and technology strategy consulting.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">🤖</div>
-                    <h3>AI & Otomasyon</h3>
-                    <p>Yapay zeka entegrasyonu, chatbot geliştirme, süreç otomasyonu ve LLM tabanlı uygulamalar.</p>
+                    <h3>AI & Automation</h3>
+                    <p>Artificial intelligence integration, chatbot development, process automation and LLM-based applications.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">🔧</div>
-                    <h3>Teknik Destek</h3>
-                    <p>7/24 teknik destek, bakım ve güncelleme hizmetleri. Uzaktan ve yerinde destek seçenekleri.</p>
+                    <h3>Technical Support</h3>
+                    <p>24/7 technical support, maintenance and update services. Remote and on-site support options.</p>
                 </div>
             </div>
         </div>
@@ -471,12 +465,12 @@
         <div class="container">
             <div class="about-content">
                 <div>
-                    <h2>Neden GON TECH?</h2>
-                    <p>Karadağ merkezli IT şirketimiz ile Avrupa pazarına açılan kapınız oluyoruz. Düşük vergi oranları ve AB'ye yakın konum ile rekabetçi fiyatlarla kaliteli hizmet sunuyoruz.</p>
-                    <p>Müşterilerimizin ihtiyaçlarına özel çözümler üretiyor, projelerini baştan sona takip ediyoruz. Destek ve bakım hizmetlerimizle işinizi büyütmeye devam ediyoruz.</p>
+                    <h2>Why GON TECH?</h2>
+                    <p>Our Montenegro-based IT company serves as your gateway to the European market. We offer quality services at competitive prices with low tax rates and proximity to the EU.</p>
+                    <p>We produce custom solutions for our clients' needs and follow projects from start to finish. We continue to grow your business with our support and maintenance services.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="GON TECH - Technology" style="width:100%; border-radius:16px;">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="GON TECH Team" style="width:100%; border-radius:16px;">
                 </div>
             </div>
         </div>
@@ -485,19 +479,19 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>İletişim</h2>
-                <p>Projenizi konuşalım</p>
+                <h2>Contact</h2>
+                <p>Let's discuss your project</p>
             </div>
             
             <div class="contact-content">
                 <div class="contact-info">
-                    <h2>Temasa Geçin</h2>
-                    <p>Fiyat teklifi almak, soru sormak veya randevu için bizimle iletişime geçin.</p>
+                    <h2>Get in Touch</h2>
+                    <p>Contact us for a price quote, ask questions, or schedule a meeting.</p>
                     
                     <div class="contact-item">
                         <span>📍</span>
                         <div>
-                            <strong>Adres</strong><br>
+                            <strong>Address</strong><br>
                             4 JULA, ZGRADA 56A, ULAZ II<br>
                             ZABJELO, PODGORICA<br>
                             MONTENEGRO
@@ -516,7 +510,7 @@
                 <div class="contact-form">
                     <form name="contact" method="POST" data-netlify="true">
                         <div class="form-group">
-                            <label>İsim</label>
+                            <label>Name</label>
                             <input type="text" name="name" required>
                         </div>
                         <div class="form-group">
@@ -524,10 +518,10 @@
                             <input type="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label>Mesaj</label>
+                            <label>Message</label>
                             <textarea name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width:100%">Gönder</button>
+                        <button type="submit" class="btn btn-primary" style="width:100%">Send</button>
                     </form>
                 </div>
             </div>
@@ -536,7 +530,7 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 GON TECH DOO. Tüm hakları saklıdır. | Podgorica, Montenegro</p>
+            <p>&copy; 2025 GON TECH DOO. All rights reserved. | Podgorica, Montenegro</p>
         </div>
     </footer>
 </body>
