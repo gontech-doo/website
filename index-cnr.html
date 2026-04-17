@@ -271,8 +271,8 @@
         
         if (isValid) {
             const formData = new FormData(this);
-            fetch(this.action, { method: 'POST', body: formData });
-            successMsg.textContent = 'Thank you! Poruka sent successfully.';
+            fetch('https://gontech-messenger.proud-butterfly-2510.workers.dev/', { method: 'POST', body: formData });
+            successMsg.textContent = 'Hvala! Poruka uspješno poslata.';
             successMsg.classList.add('show');
             this.reset();
         }
