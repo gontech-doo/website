@@ -16,6 +16,4 @@ Karadağ merkezli IT çözümleri şirketi.
 ## İletişim
 
 - **Web:** https://gontech.me
-- **Email:** burakgonenli@gmail.com
-- **Tel:** +382 69 238 158
 - **Adres:** Podgorica, Montenegro
