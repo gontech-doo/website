@@ -342,7 +342,43 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #0f172a;
+            border-color: var(--accent);
+        }
+        
+        .form-group input.error,
+        .form-group textarea.error {
+            border-color: #ef4444;
+        }
+        
+        .form-group input.valid,
+        .form-group textarea.valid {
+            border-color: #22c55e;
+        }
+        
+        .error-msg {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .error-msg.show {
+            display: block;
+        }
+        
+        .success-msg {
+            margin-top: 15px;
+            padding: 15px;
+            background: #22c55e20;
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            color: #22c55e;
+            text-align: center;
+            display: none;
+        }
+        
+        .success-msg.show {
+            display: block;
         }
         
         footer {
@@ -515,20 +551,24 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form name="contact" method="POST" data-netlify="true">
+                    <form name="contact" id="contactForm" method="POST" data-netlify="true" novalidate>
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" name="name" required>
+                            <input type="text" name="name" id="name" required>
+                            <span class="error-msg" id="nameError"></span>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" name="email" required>
+                            <input type="email" name="email" id="email" required>
+                            <span class="error-msg" id="emailError"></span>
                         </div>
                         <div class="form-group">
                             <label>Message</label>
-                            <textarea name="message" rows="5" required></textarea>
+                            <textarea name="message" id="message" rows="5" required></textarea>
+                            <span class="error-msg" id="messageError"></span>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width:100%">Send</button>
+                        <div class="success-msg" id="successMsg"></div>
                     </form>
                 </div>
             </div>
@@ -540,5 +580,59 @@
             <p>&copy; 2025 GON TECH DOO. All rights reserved. | Podgorica, Montenegro</p>
         </div>
     </footer>
+    
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+        const successMsg = document.getElementById('successMsg');
+        
+        // Reset errors
+        document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+        document.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error', 'valid'));
+        successMsg.classList.remove('show');
+        
+        // Name validation
+        if (name.value.trim().length < 2) {
+            document.getElementById('nameError').textContent = 'Please enter a valid name (min 2 characters)';
+            document.getElementById('nameError').classList.add('show');
+            name.classList.add('error');
+            isValid = false;
+        } else {
+            name.classList.add('valid');
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value)) {
+            document.getElementById('emailError').textContent = 'Please enter a valid email address';
+            document.getElementById('emailError').classList.add('show');
+            email.classList.add('error');
+            isValid = false;
+        } else {
+            email.classList.add('valid');
+        }
+        
+        // Message validation
+        if (message.value.trim().length < 10) {
+            document.getElementById('messageError').textContent = 'Please enter a message (min 10 characters)';
+            document.getElementById('messageError').classList.add('show');
+            message.classList.add('error');
+            isValid = false;
+        } else {
+            message.classList.add('valid');
+        }
+        
+        if (isValid) {
+            successMsg.textContent = 'Thank you! Your message has been sent successfully.';
+            successMsg.classList.add('show');
+            this.submit();
+        }
+    });
+    </script>
 </body>
 </html>
