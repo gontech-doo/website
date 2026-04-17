@@ -210,28 +210,15 @@
             margin-bottom: 20px;
         }
         
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+        .about-image {
+            border-radius: 16px;
+            overflow: hidden;
         }
         
-        .stat {
-            text-align: center;
-            padding: 30px;
-            background: var(--bg);
-            border-radius: 12px;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-        
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
         /* Contact */
@@ -448,23 +435,8 @@
                     <p>Karadağ merkezli IT şirketimiz ile Avrupa pazarına açılan kapınız oluyoruz. Düşük vergi oranları ve AB'ye yakın konum ile rekabetçi fiyatlarla kaliteli hizmet sunuyoruz.</p>
                     <p>Müşterilerimizin ihtiyaçlarına özel çözümler üretiyor, projelerini baştan sona takip ediyoruz. Destek ve bakım hizmetlerimizle işinizi büyütmeye devam ediyoruz.</p>
                 </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <div class="stat-number">6201</div>
-                        <div class="stat-label">NACE Kodu</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">2025</div>
-                        <div class="stat-label">Kuruluş Yılı</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">%9</div>
-                        <div class="stat-label">Vergi Oranı</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">∞</div>
-                        <div class="stat-label">Destek</div>
-                    </div>
+                <div class="about-image">
+                    <img src="about.jpg" alt="GON TECH Team" style="width:100%; border-radius:16px;">
                 </div>
             </div>
         </div>
