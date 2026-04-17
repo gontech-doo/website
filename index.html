@@ -10,7 +10,6 @@
     <title>GON TECH DOO - IT Solutions & Digital Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta name="description" content="Professional IT solutions in Montenegro. Web development, mobile apps, 360° photography, hosting and digital services.">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LePRLwsAAAAAI5WLE6VE_k-uuugEyJ-ytBta_vQ"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -29,10 +28,6 @@
         .logo-link { display: inline-block; }
         .site-logo { height: 40px; width: auto; }
         nav { display: flex; align-items: center; gap: 25px; }
-        .social-icons { display: flex; gap: 12px; margin-left: 20px; }
-        .social-icons a { color: #64748b; font-size: 1.2rem; transition: color 0.3s; }
-        .social-icons a:hover { color: var(--primary); }
-
         nav a { color: #64748b; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
         nav a:hover { color: var(--primary); }
         .lang-dropdown { position: relative; }
@@ -209,7 +204,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form name="contact" id="contactForm" method="POST" action="https://gontech-messenger.proud-butterfly-2510.workers.dev/"  novalidate>
+                    <form id="contactForm" action="https://gontech-messenger.proud-butterfly-2510.workers.dev/" method="POST" novalidate>
                         <div class="form-group">
                             <label>Name</label>
                             <input type="text" name="name" id="name" required>
@@ -275,19 +270,11 @@
         } else { message.classList.add('valid'); }
         
         if (isValid) {
-            try {
-                const token = await grecaptcha.execute('6LePRLwsAAAAAI5WLE6VE_k-uuugEyJ-ytBta_vQ', {action: 'contact'});
-                let tokenInput = document.createElement('input');
-                tokenInput.type = 'hidden';
-                tokenInput.name = 'g-recaptcha-response';
-                tokenInput.value = token;
-                this.appendChild(tokenInput);
-                successMsg.textContent = 'Thank you! Message sent successfully.';
-                successMsg.classList.add('show');
-                this.submit();
-            } catch (error) {
-                alert('Please try again later.');
-            }
+            const formData = new FormData(this);
+            fetch(this.action, { method: 'POST', body: formData });
+            successMsg.textContent = 'Thank you! Message sent successfully.';
+            successMsg.classList.add('show');
+            this.reset();
         }
     });
     </script>
