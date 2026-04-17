@@ -307,15 +307,13 @@
         }
     });
     </script>
-    <script>
-    </script>
     <div id="cookie-banner">
         <span>We use cookies to enhance your browsing experience.</span>
         <button class="cookie-btn" onclick="acceptCookies()">Accept</button>
         <button class="cookie-close" onclick="acceptCookies()">×</button>
     </div>
     <script>
-    if (!localStorage.getCookie("cookies_accepted")) { document.getElementById("cookie-banner").style.display = "block"; }
+    if (!localStorage.getItem("cookies_accepted")) { document.getElementById("cookie-banner").style.display = "block"; }
     function acceptCookies() { localStorage.setItem("cookies_accepted", "true"); document.getElementById("cookie-banner").style.display = "none"; }
     </script>
 </body>
