@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GON TECH DOO - IT Solutions & Digital Services</title>
+    <meta name="description" content="Professional IT solutions in Montenegro. Web development, mobile apps, 360° photography, hosting and digital services.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #3b82f6;
+            --bg: #0f172a;
+            --bg-light: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .logo span {
+            color: var(--text);
+        }
+        
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-light) 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        /* Services */
+        .services {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* About */
+        .about {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .about p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg);
+            border-radius: 12px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 100px 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item span {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 16px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: var(--text-muted);
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">GON<span>TECH</span></div>
+            <nav>
+                <a href="#services">Hizmetler</a>
+                <a href="#about">Hakkımızda</a>
+                <a href="#contact">İletişim</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>GON TECH DOO</h1>
+            <p>Karadağ'da profesyonel IT çözümleri. Web, mobil uygulamalar, 360° çekimler ve dijital dönüşüm hizmetleri.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Teklif Al</a>
+                <a href="#services" class="btn btn-secondary">Hizmetlerimiz</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hizmetlerimiz</h2>
+                <p>İşletmeniz için kapsamlı dijital çözümler</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Web Geliştirme</h3>
+                    <p>Modern web siteleri, e-ticaret platformları ve kurumsal web uygulamaları. React, Vue, Next.js ve WordPress ile geliştirme.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Mobil Uygulama</h3>
+                    <p>iOS ve Android için native ve cross-platform mobil uygulamalar. App Store ve Google Play dağıtımı.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🖥️</div>
+                    <h3>Masaüstü Uygulama</h3>
+                    <p>Windows, macOS ve Linux için desktop uygulamalar. Electron ve native development.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📍</div>
+                    <h3>Google İşletme Kaydı</h3>
+                    <p>Google Maps'te işletme profili oluşturma ve optimizasyonu. Yerel SEO ve harita entegrasyonları.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>Hosting & Email</h3>
+                    <p>Güvenilir web hosting, business email, domain yönetimi ve SSL sertifikası hizmetleri.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📸</div>
+                    <h3>360° Çekim & VR</h3>
+                    <p>Insta360 ile profesyonel 360° fotoğraf ve video çekimi. Virtual tour ve immersive içerikler.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>IT Danışmanlık</h3>
+                    <p>Dijital dönüşüm, sistem mimarisi ve teknoloji stratejisi danışmanlığı.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Teknik Destek</h3>
+                    <p>7/24 teknik destek, bakım ve güncelleme hizmetleri. Uzaktan ve yerinde destek seçenekleri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2>Neden GON TECH?</h2>
+                    <p>Karadağ merkezli IT şirketimiz ile Avrupa pazarına açılan kapınız oluyoruz. Düşük vergi oranları ve AB'ye yakın konum ile rekabetçi fiyatlarla kaliteli hizmet sunuyoruz.</p>
+                    <p>Müşterilerimizin ihtiyaçlarına özel çözümler üretiyor, projelerini baştan sona takip ediyoruz. Destek ve bakım hizmetlerimizle işinizi büyütmeye devam ediyoruz.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">6201</div>
+                        <div class="stat-label">NACE Kodu</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2025</div>
+                        <div class="stat-label">Kuruluş Yılı</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">%9</div>
+                        <div class="stat-label">Vergi Oranı</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Destek</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>İletişim</h2>
+                <p>Projenizi konuşalım</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Temasa Geçin</h2>
+                    <p>Fiyat teklifi almak, soru sormak veya randevu için bizimle iletişime geçin.</p>
+                    
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Adres</strong><br>
+                            4 JULA, ZGRADA 56A, ULAZ II<br>
+                            ZABJELO, PODGORICA<br>
+                            MONTENEGRO
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <div>
+                            <strong>Telefon</strong><br>
+                            +382 69 238 158
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <div>
+                            <strong>Email</strong><br>
+                            burakgonenli@gmail.com
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form name="contact" method="POST" data-netlify="true">
+                        <div class="form-group">
+                            <label>İsim</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mesaj</label>
+                            <textarea name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GON TECH DOO. Tüm hakları saklıdır. | Podgorica, Montenegro</p>
+        </div>
+    </footer>
+</body>
+</html>
